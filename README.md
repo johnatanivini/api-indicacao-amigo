@@ -1,4 +1,4 @@
-# ApiRest Indicação de Amigo
+#  Friend's Referral APi
 Api Rest for crud of referral friend's developing with Laravel Framework 8
 
 # Archteture of the project
