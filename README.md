@@ -21,3 +21,18 @@ https://documenter.getpostman.com/view/3123251/Tzm3pdby
 # Schema database PostgreSQL
 ![image](https://user-images.githubusercontent.com/2191326/124694156-181f0680-deb7-11eb-8827-47c107d7f217.png)
 
+# Rodando api local:
+
+Inicialize o docker:
+
+`sudo docker-compose up -d --build`
+
+Após a finalização execute:
+
+`docker exec -it api-indicacao-amigo php artisan key:generate`
+
+Edite o arquivo `.env` 
+
+# Adminer
+http://localhost:8080 
+

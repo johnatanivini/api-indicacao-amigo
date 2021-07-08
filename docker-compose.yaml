@@ -5,8 +5,8 @@ services:
         build: .
         ports:
             - 8006:80
-        volumes: 
-            - ./:/app
+        volumes:  
+            - ./api:/app
         depends_on: 
             - db
     db:
