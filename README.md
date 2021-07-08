@@ -23,15 +23,25 @@ https://documenter.getpostman.com/view/3123251/Tzm3pdby
 
 # Rodando api local:
 
-Inicialize o docker:
+Initialize the docker constainers
 
 `sudo docker-compose up -d --build`
 
-Após a finalização execute:
+Access the container of the api:
 
-`docker exec -it api-indicacao-amigo php artisan key:generate`
+`docker exec -it api-indicacao-amigo`
 
-Edite o arquivo `.env` 
+Generate Key:
+
+`php artisan key:generate`
+
+Configuration of cache app
+
+`php artisan config:cache`
+
+Execute the migrations:
+
+`php artisan migrate`
 
 # Adminer
 http://localhost:8080 
