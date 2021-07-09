@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Concerns\ResponseJsonTrait;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\IndicacaoResource;
+use App\Http\Resources\IndicacaoCollection;
 use App\Models\Indicacao;
 use Illuminate\Http\Request;
 
@@ -20,6 +20,7 @@ class IndicacoesController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return $this->sendResponse(new IndicacaoResource(Indicacao::all()), 'Idicações carregadas');
+        $indicacoes = Indicacao::all();
+        return $this->sendResponse(new IndicacaoCollection($indicacoes), 'Idicações carregadas');
     }
 }

@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Concerns\ResponseJsonTrait;
 use App\Http\Controllers\Controller;
+use App\Models\Indicacao;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class DeleteIndicacaoController extends Controller
 {
@@ -17,6 +19,15 @@ class DeleteIndicacaoController extends Controller
      */
     public function __invoke(Request $request, $id)
     {
-        return $this->sendResponse([], 'Idicação removida!');
+
+        $indicacao = Indicacao::find($id);
+
+        if (!$indicacao) {
+            return $this->sendError('Indicação não existe!', [], 500);
+        }
+
+        $indicacao->delete();
+        
+        return $this->sendResponse(new Collection(), 'Idicação removida!');
     }
 }

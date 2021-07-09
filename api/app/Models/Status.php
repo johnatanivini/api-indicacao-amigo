@@ -8,7 +8,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Status extends Model
 {
+
+    const INICIADA = 1;
+    const EM_ANDAMENTO = 2;
+    const FINALIZADO = 3;
+    
     use HasFactory, SoftDeletes;
+
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     protected $table = 'status';
 

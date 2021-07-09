@@ -7,7 +7,7 @@ use Illuminate\Http\JsonResponse;
 trait ResponseJsonTrait
 {
 
-    public function sendResponse($result, $message):JsonResponse
+    public function sendResponse($result, $message, $code = 200):JsonResponse
     {
         $response = [
             'success' => true,
@@ -27,7 +27,7 @@ trait ResponseJsonTrait
     public function sendError($error, array $errorMensages = [], $code = 404):JsonResponse
     {
         $response = [
-            'success' => false, 
+            'success' => false,
             'message' => $error
         ];
 

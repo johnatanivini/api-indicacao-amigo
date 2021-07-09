@@ -24,8 +24,8 @@ class UpdateIndicacaoRequest extends FormRequest
     public function rules()
     {
         return [
-            'pessoa.cpf' => 'required | unique:people, cpf'
-            'pessoa.contatos.'
+            'id' => 'required',
+            'status_id' => 'required'
         ];
     }
 }

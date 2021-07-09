@@ -15,10 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->group(function () {
+Route::post('/login', 'Auth\AuthController@login')->name('login');
+
+Route::post('/indicacoes', 'StoreIndicacaoController');
+
+Route::middleware(['auth:sanctum'])->group(function () {
+
     Route::get('/indicacoes', 'IndicacoesController');
     Route::get('/indicacoes/{id}', 'GetIndicacaoController');
-    Route::post('/indicacoes', 'StoreIndicacaoController');
     Route::delete('/indicacoes/{id}', 'DeleteIndicacaoController');
     Route::put('/indicacoes/{id}', 'UpdateStatusIndicacaoController');
 });

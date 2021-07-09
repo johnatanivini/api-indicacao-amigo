@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use LaravelLegends\PtBrValidator\Rules\FormatoCpf;
 
 class StoreIndicacaoRequest extends FormRequest
 {
@@ -24,8 +25,19 @@ class StoreIndicacaoRequest extends FormRequest
     public function rules()
     {
         return [
-            'pessoa.cpf' => 'required | unique:people, cpf'
-            'pessoa.contatos.'
+            'cpf' => 'cpf | required | unique:pessoas,CPF',
+            'email' => 'email | unique:contatos,valor',
+            'telefone' => 'required | unique:contatos,valor',
+            'nome' => 'required | max: 120 | min:5'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'cpf' => [
+                'unique:contatos,valor' => 'CPF já está em uso!'
+            ]
         ];
     }
 }
