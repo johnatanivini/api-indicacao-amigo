@@ -1,0 +1,5 @@
+{
+    "require": {
+        "laravellegends/pt-br-validator": "^8.0"
+    }
+}
