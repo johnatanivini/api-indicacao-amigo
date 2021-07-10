@@ -16,14 +16,17 @@ class StatusSeeder extends Seeder
     {
         DB::table('status')->updateOrInsert([
             'nome' => 'INICADA',
+            'id' => 1
         ]);
 
         DB::table('status')->updateOrInsert([
             'nome' => 'EM ANDAMENTO',
+            'id' => 2
         ]);
 
         DB::table('status')->updateOrInsert([
             'nome' => 'FINALIZADA',
+            'id' => 3
         ]);
     }
 }

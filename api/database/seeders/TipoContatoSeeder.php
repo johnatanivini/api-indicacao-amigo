@@ -16,10 +16,12 @@ class TipoContatoSeeder extends Seeder
     {
         DB::table('tipo_contatos')->updateOrInsert([
             'nome' => 'Email',
+            'id' => 1
         ]);
 
         DB::table('tipo_contatos')->updateOrInsert([
             'nome' => 'Telefone',
+            'id' => 2
         ]);
     }
 }
