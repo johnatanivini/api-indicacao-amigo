@@ -7,7 +7,7 @@ All the descriptions of the challenge are in the link below:
 https://www.notion.so/Desafio-Indica-o-de-Amigo-c70f83adb5b14cf6a70a12d47304fb9c
 
 # ApiRest documentation created on Postman application
-https://documenter.getpostman.com/view/3123251/Tzm3pdby
+https://documenter.getpostman.com/view/3123251/Tzm6mwMg
 
 # Tecnologies
 - PHP 8+
