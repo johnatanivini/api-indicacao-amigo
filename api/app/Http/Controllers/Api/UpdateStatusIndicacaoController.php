@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Concerns\ResponseJsonTrait;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateIndicacaoRequest;
+use App\Http\Resources\IndicacaoResource;
+use App\Models\Indicacao;
+use Exception;
 
 class UpdateStatusIndicacaoController extends Controller
 {
@@ -16,8 +19,13 @@ class UpdateStatusIndicacaoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(UpdateIndicacaoRequest $request, $id)
+    public function __invoke($id)
     {
-        return $this->sendResponse([], 'Status atualizado!');
+        try {
+            $response = Indicacao::updateStatus($id);
+            return $this->sendResponse(new IndicacaoResource($response), 'Status atualizado!');
+        } catch (Exception $e) {
+            return $this->sendError($e->getMessage(), [], 500);
+        }
     }
 }

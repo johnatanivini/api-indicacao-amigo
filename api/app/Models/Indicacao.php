@@ -94,4 +94,25 @@ class Indicacao extends Model
             throw new Exception($e->getMessage());
         }
     }
+
+    public static function updateStatus(int $id): Indicacao | Exception
+    {
+        try {
+            $indicacao = Indicacao::find($id);
+
+            if (!$indicacao) {
+                throw new Exception('A indicação que está tentando atualizar não existe!'); 
+            }
+
+            if ($indicacao->status_id < Status::FINALIZADO) {
+                $indicacao->status_id += Status::INICIADA;
+            }
+
+            $indicacao->update();
+
+            return $indicacao;
+        } catch (Exception $e) {
+            throw $e;
+        }
+    }
 }
